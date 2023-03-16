@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./Components/LoginPage/LoginPage"
+import RegisterPage from "./Components/RegisterPage/RegisterPage"
+import TopFixed from "./Components/FixedComponents/Top";
+import MenuFixed from "./Components/FixedComponents/Menu";
+import HabitsPage from "./Components/Habits/HabitsPage"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+
+    <Routes>
+      <Route path="/" element={<LoginPage/>} />
+      <Route path="/cadastro" element={<RegisterPage/>} />
+      <Route path="/habitos" element={<HabitsPage image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
+      <Route path="/top" element={<TopFixed image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>} />
+      <Route path="/menu" element={<MenuFixed/>}/>
+    </Routes>
+
+    </BrowserRouter>
   );
 }
 
