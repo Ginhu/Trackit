@@ -17,7 +17,7 @@ export default function LoginPage() {
 
         <LinkContainer>
             <Link to="/cadastro">
-            <a>Não tem uma conta? Cadastre-se!</a>
+            <p>Não tem uma conta? Cadastre-se!</p>
             </Link>
         </LinkContainer>
         </>

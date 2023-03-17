@@ -66,8 +66,7 @@ export const LinkContainer = styled.div`
     align-items: center;
     justify-content: center;
 
-    a {
-        color:#52B6FF;
+    p {
         font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
@@ -75,5 +74,7 @@ export const LinkContainer = styled.div`
         line-height: 17px;
         text-align: center;
         text-decoration-line: underline;
+
+        color: #52B6FF;
     }
 `
