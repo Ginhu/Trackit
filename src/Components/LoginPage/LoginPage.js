@@ -9,7 +9,8 @@ import { UserContext } from "../../UserContext"
 export default function LoginPage({email, setEmail, password, setPassword}) {
 
     const [disabled, setDisabled] = useState(false)
-    const {header, setHeader} = useContext(UserContext)
+    const {setHeader} = useContext(UserContext)
+
     const navigate = useNavigate()
 
     function clickLogin() {
@@ -19,10 +20,12 @@ export default function LoginPage({email, setEmail, password, setPassword}) {
         axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login", body)
         .then(
             res => {
-                console.log(res.data)
-                setHeader({headers: {
-                    Authorization: res.data.token
-                  }})
+                console.log(res.data.token)
+                setHeader({
+                    headers: {
+                        "Authorization": `Bearer ${res.data.token}`
+                    }
+                })
                 navigate("/hoje")
             }
         )

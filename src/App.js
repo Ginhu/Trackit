@@ -11,9 +11,7 @@ function App() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [header, setHeader] = useState({headers: {
-      Authorization: ""
-    }})
+    const [header, setHeader] = useState(null)
     
 
   return (

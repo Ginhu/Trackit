@@ -10,9 +10,6 @@ export default function TodayPage({image}) {
 
     const { header } = useContext(UserContext)
 
-    useEffect(()=>{
-        console.log(header)
-    }, [])
 
     return (
         <>

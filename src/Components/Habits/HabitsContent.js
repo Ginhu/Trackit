@@ -1,25 +1,44 @@
-import { useState } from "react"
-import {HabistContentContainer} from "./HabistStyled"
-import NewHabit from "./NewHabit"
-import NewHabitAdded from "./NewHabitAdded"
+import axios from "axios"
+import { useContext, useEffect, useState } from "react"
+import { UserContext } from "../../UserContext"
+import {HabistContentContainer, Overflow} from "./HabistStyled"
+import NewHabit from "./NewHabit/NewHabit"
+import NewHabitAdded from "./NewHabitAdded/NewHabitAdded"
+import HabitsTitle from "./HabitsTitle"
  
  export default function HabitsContent() {
-    const [texto, setTexto] = useState(<span>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</span>)
-    const [novo, setNovo] = useState(<NewHabit />)
+
+    const texto = (<p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>)
+    const [showNew, setShowNew] = useState(false)
+    const [habitsArray, setHabistArray] = useState([])
+    const {header} = useContext(UserContext)
+    const [weekdaysArray, setWeekdaysArray] = useState([])
+    const [newHabitName, setNewHabitName] = useState("")
+
+    useEffect(()=>{
+        axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits" ,header)
+        .then(res=>{
+            setHabistArray(res.data)
+        })
+        .catch(err=>alert(err.response.data, header))
+    }, [habitsArray])
+
     function clicado () {
-        setTexto("");
-        setNovo("")
+        setShowNew(!showNew)
     }
+
     return (
         <HabistContentContainer>
-            <div>
-                <p>Meus hábitos</p>
-                <button onClick={clicado}>+</button>
-            </div>
-            {novo}
-            {texto}
+            <HabitsTitle clicado={clicado}/>
+                
+            {showNew && <NewHabit showNew={showNew} setShowNew={setShowNew} 
+            weekdaysArray={weekdaysArray} setWeekdaysArray={setWeekdaysArray}
+            newHabitName={newHabitName} setNewHabitName={setNewHabitName}
+            />}
+            {habitsArray.length === 0 ? texto : ""}
 
-            <NewHabitAdded/>
+            {habitsArray.map((el)=> <NewHabitAdded key={el.id} el={el}/>)}
+            <Overflow/>
         </HabistContentContainer>    
     )
  }

@@ -1,11 +1,14 @@
 import styled from "styled-components"
+import { Link } from "react-router-dom";
 
 export default function TopFixed({image}) {
     return (
+        
         <Top>
-            <p>TrackIt</p>
+            <span>TrackIt</span>
             <img src={image}></img>
         </Top>
+        
     )
 }
 
@@ -20,8 +23,9 @@ const Top = styled.div`
     position: fixed;
     top: 0;
     left: 0;
+    
 
-    p {
+    span {
         font-family: 'Playball';
         color: #ffffff;
         font-style: normal;

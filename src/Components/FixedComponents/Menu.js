@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import { Link } from "react-router-dom";
 
 export default function MenuFixed() {
 
@@ -8,24 +9,30 @@ export default function MenuFixed() {
 
     return (
         <Menu>
-            <button>Hábitos</button>
+            <Link to="/habitos">
+                <button>Hábitos</button>
+            </Link>
 
-            <div>
-            <CircularProgressbar
-                value={percentage}
-                text="Hoje"
-                background
-                backgroundPadding={6}
-                styles={buildStyles({
-                backgroundColor: "#3e98c7",
-                textColor: "#fff",
-                pathColor: "#fff",
-                trailColor: "transparent"
-        })}
-      />
-            </div>
-
-            <button>Histórico</button>
+            <Link to="/hoje">
+                <div>
+                <CircularProgressbar
+                    value={percentage}
+                    text="Hoje"
+                    background
+                    backgroundPadding={6}
+                    styles={buildStyles({
+                    backgroundColor: "#3e98c7",
+                    textColor: "#fff",
+                    pathColor: "#fff",
+                    trailColor: "transparent"
+                    })}
+                />
+                </div>
+            </Link>
+            
+            <Link to="/historico">
+                <button>Histórico</button>
+            </Link>
         </Menu>
     )
 }
