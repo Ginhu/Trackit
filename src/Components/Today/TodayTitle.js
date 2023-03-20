@@ -8,8 +8,8 @@ export default function TodayTitle({todayTasksDone, todayTasksCounter}) {
 
     return (
         <TitleContainer todayTasksDone={todayTasksDone}>
-            <p>{now.charAt(0).toUpperCase()+now.slice(1)}</p>
-            {todayTasksDone === 0 ? <span>Nenhum hábito concluído ainda</span> : <span>{((todayTasksDone/todayTasksCounter)*100).toFixed(1)}% dos hábitos concluídos</span>}
+            <p data-test="today">{now.charAt(0).toUpperCase()+now.slice(1)}</p>
+            {todayTasksDone === 0 ? <span data-test="today-counter">Nenhum hábito concluído ainda</span> : <span data-test="today-counter">{((todayTasksDone/todayTasksCounter)*100).toFixed(1)}% dos hábitos concluídos</span>}
         </TitleContainer>
     )
 }

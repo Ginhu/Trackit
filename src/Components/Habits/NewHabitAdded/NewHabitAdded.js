@@ -5,7 +5,7 @@ import NewHabitAddedWeekdays from "./NewHabitAddedWeekdays"
 
 export default function NewHabitAdded({el}) {
     return (
-        <NewHabitAddedContainer>
+        <NewHabitAddedContainer data-test="habit-container">
             <NewHabitAddedTitle icone={Icone} el={el}/>
             <NewHabitAddedWeekdays el={el}/>
         </NewHabitAddedContainer>

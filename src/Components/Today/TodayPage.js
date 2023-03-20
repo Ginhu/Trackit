@@ -17,6 +17,9 @@ export default function TodayPage({image, setTodayTasksCounter, todayTasksCounte
         axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", header)
         .then(res=>{setTodayTasks(res.data)
             setTodayTasksCounter(res.data.length) 
+            if(res.data.length === 0) {
+                setTodayTasksDone(0)
+            }
             })
         .catch(err=>console.log(err.response.data.message))
     }, [todayTasksDone])
@@ -29,7 +32,7 @@ export default function TodayPage({image, setTodayTasksCounter, todayTasksCounte
         <TopFixed image={image} />
             <TodayContainer>
                 <TodayTitle todayTasksDone={todayTasksDone} todayTasksCounter={todayTasksCounter}/>
-                {todayTasks.map((el)=> <TodayTask key={el.id} header={header} task={el} setTodayTasksDone={setTodayTasksDone} todayTasksDone={todayTasksDone} />)}
+                {todayTasks.map((el)=> <TodayTask key={el.id} header={header} task={el} setTodayTasksDone={setTodayTasksDone} todayTasksDone={todayTasksDone} data-test="today-habit-container"/>)}
             </TodayContainer>
         <MenuFixed todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}/>
         </>

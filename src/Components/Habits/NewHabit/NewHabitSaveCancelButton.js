@@ -4,8 +4,8 @@ import { ThreeDots } from "react-loader-spinner"
 export default function NewHabitSaveCancelButton({showNew, setShowNew, clickSave, disabled}) {
     return (
         <NewHabitSaveCancelButtonContainer>
-            <button disabled={disabled} onClick={()=>setShowNew(!showNew)}>Cancelar</button>
-            <span onClick={clickSave}>
+            <button disabled={disabled} onClick={()=>setShowNew(!showNew)} data-test="habit-create-cancel-btn">Cancelar</button>
+            <span onClick={clickSave} data-test="habit-create-save-btn">
                 {!disabled ? "Salvar" : <ThreeDots 
                     height="80" 
                     width="80" 

@@ -6,7 +6,7 @@ import { ThreeDots } from "react-loader-spinner"
 import axios from "axios"
 import { UserContext } from "../../UserContext"
 
-export default function LoginPage({email, setEmail, password, setPassword}) {
+export default function LoginPage({email, setEmail, password, setPassword, setImage}) {
 
     const [disabled, setDisabled] = useState(false)
     const {setHeader} = useContext(UserContext)
@@ -20,12 +20,12 @@ export default function LoginPage({email, setEmail, password, setPassword}) {
         axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login", body)
         .then(
             res => {
-                console.log(res.data.token)
                 setHeader({
                     headers: {
                         "Authorization": `Bearer ${res.data.token}`
                     }
                 })
+                setImage(res.data.image)
                 navigate("/hoje")
             }
         )
@@ -44,9 +44,9 @@ export default function LoginPage({email, setEmail, password, setPassword}) {
         </LogoContainer>
 
         <FormContainer>
-            <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} value={email} disabled={disabled}/>
-            <input placeholder="senha" onChange={(e)=>setPassword(e.target.value)} value={password} disabled={disabled}/>
-            <button disabled={disabled} onClick={clickLogin}>
+            <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} value={email} disabled={disabled} data-test="email-input"/>
+            <input placeholder="senha" onChange={(e)=>setPassword(e.target.value)} value={password} disabled={disabled} data-test="password-input"/>
+            <button disabled={disabled} onClick={clickLogin} data-test="login-btn">
                 {!disabled ? "Entrar" : <ThreeDots 
                     height="80" 
                     width="80" 
@@ -61,8 +61,8 @@ export default function LoginPage({email, setEmail, password, setPassword}) {
 
         </FormContainer>
 
-        <LinkContainer>
-            <Link to="/cadastro">
+        <LinkContainer  >
+            <Link to="/cadastro" data-test="signup-link">
             <p>Não tem uma conta? Cadastre-se!</p>
             </Link>
         </LinkContainer>

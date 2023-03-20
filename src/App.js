@@ -14,6 +14,7 @@ function App() {
   const [header, setHeader] = useState(null)
   const [todayTasksCounter, setTodayTasksCounter] = useState(0)
   const [todayTasksDone, setTodayTasksDone] = useState(0)
+  const [image, setImage] = useState(null)
     
 
   return (
@@ -21,15 +22,15 @@ function App() {
     <UserContext.Provider value={{header, setHeader}}>
     <Routes>
       
-          <Route path="/" element={<LoginPage email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
+          <Route path="/" element={<LoginPage setImage={setImage} email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
           <Route path="/cadastro" element={<RegisterPage email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
           <Route path="/habitos" element={<HabitsPage todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}
-          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
+          image={image}/>}/>
           <Route path="/hoje" element={<TodayPage todayTasksDone={todayTasksDone} setTodayTasksDone={setTodayTasksDone}  
           todayTasksCounter={todayTasksCounter} setTodayTasksCounter={setTodayTasksCounter} 
-          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/> 
+          image={image}/>}/> 
           <Route path="/historico" element={<HistoricPage todayTasksDone={todayTasksDone} todayTasksCounter={todayTasksCounter}
-          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
+          image={image}/>}/>
         
     </Routes>
     </UserContext.Provider>

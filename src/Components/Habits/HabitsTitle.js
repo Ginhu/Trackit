@@ -4,7 +4,7 @@ export default function HabitsTitle({clicado}) {
     return (
         <HabistTitleContainer>
             <span>Meus hábitos</span>
-            <button onClick={clicado}>+</button>
+            <button onClick={clicado} data-test="habit-create-btn">+</button>
         </HabistTitleContainer>
     )
 }

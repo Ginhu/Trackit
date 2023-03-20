@@ -14,8 +14,8 @@ export default function NewHabitAddedTitle({icone, el}) {
     }
     return (
         <NewHabitAddedTitleContainer>
-            <span>{el.name}</span>
-            <img src={icone} onClick={()=>{ if(window.confirm("Delete this habit?")){deleteHabit(el.id)}}}/>                
+            <span data-test="habit-name" >{el.name}</span>
+            <img src={icone} onClick={()=>{ if(window.confirm("Delete this habit?")){deleteHabit(el.id)}}} data-test="habit-delete-btn"/>                
         </NewHabitAddedTitleContainer>
     )
 }

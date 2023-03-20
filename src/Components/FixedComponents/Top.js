@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function TopFixed({image}) {
     return (
         
-        <Top>
+        <Top data-test="header">
             <span>TrackIt</span>
             <img src={image}></img>
         </Top>

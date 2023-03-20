@@ -8,12 +8,12 @@ export default function MenuFixed({todayTasksCounter, todayTasksDone}) {
     const percentage = ((todayTasksDone/todayTasksCounter)*100).toFixed(1)
 
     return (
-        <Menu>
-            <Link to="/habitos">
+        <Menu data-test="menu">
+            <Link to="/habitos" data-test="habit-link">
                 <button>Hábitos</button>
             </Link>
 
-            <Link to="/hoje">
+            <Link to="/hoje" data-test="today-link">
                 <div>
                 <CircularProgressbar
                     value={percentage}
@@ -30,7 +30,7 @@ export default function MenuFixed({todayTasksCounter, todayTasksDone}) {
                 </div>
             </Link>
             
-            <Link to="/historico">
+            <Link to="/historico" data-test="history-link">
                 <button>Histórico</button>
             </Link>
         </Menu>

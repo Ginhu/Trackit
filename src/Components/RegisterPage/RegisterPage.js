@@ -30,21 +30,21 @@ export default function RegisterPage ({email, setEmail, password, setPassword}) 
         <>
         <LogoContainer>
             <Link to="/">
-            <img src={Logo}></img>
+            <img src={Logo}/>
             </Link>
         </LogoContainer>
 
         <FormContainer>
-            <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} value={email} disabled={disabled}/>
-            <input placeholder="senha" onChange={(e)=>setPassword(e.target.value)} value={password} disabled={disabled}/>
-            <input placeholder="nome" onChange={(e)=>setUserName(e.target.value)} value={userName} disabled={disabled}/>
-            <input placeholder="foto" onChange={(e)=> setUserImage(e.target.value)} value={userImage} disabled={disabled}/>
-            <button onClick={clickRegister} disabled={disabled}>Cadastrar</button>
+            <input placeholder="email" onChange={(e)=>setEmail(e.target.value)} value={email} disabled={disabled} data-test="email-input"/>
+            <input placeholder="senha" onChange={(e)=>setPassword(e.target.value)} value={password} disabled={disabled} data-test="password-input"/>
+            <input placeholder="nome" onChange={(e)=>setUserName(e.target.value)} value={userName} disabled={disabled} data-test="user-name-input"/>
+            <input placeholder="foto" onChange={(e)=> setUserImage(e.target.value)} value={userImage} disabled={disabled} data-test="user-image-input"/>
+            <button onClick={clickRegister} disabled={disabled} data-test="signup-btn">Cadastrar</button>
 
         </FormContainer>
 
-        <LinkContainer>
-            <Link to="/">
+        <LinkContainer >
+            <Link to="/" data-test="login-link">
                 <p>Já tem uma conta? Faça login!</p>
             </Link>
         </LinkContainer>

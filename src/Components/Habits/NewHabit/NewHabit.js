@@ -45,8 +45,8 @@ export default function NewHabit({showNew, setShowNew, weekdaysArray, setWeekday
     }
 
     return (
-            <NewHabitContainer>
-                <input placeholder="nome do hábito" disabled={disabled} onChange={(e)=>setNewHabitName(e.target.value)} value={newHabitName}/>
+            <NewHabitContainer data-test="habit-create-container">
+                <input placeholder="nome do hábito" disabled={disabled} onChange={(e)=>setNewHabitName(e.target.value)} value={newHabitName} data-test="habit-name-input"/>
                 <NewHabitWeekdayButtons disabled={disabled} refArray={refArray} clickDay={clickDay} weekdaysArray={weekdaysArray}/>
                 <NewHabitSaveCancelButton disabled={disabled} setShowNew={setShowNew} showNew={showNew} clickSave={clickSave}/>
             </NewHabitContainer>

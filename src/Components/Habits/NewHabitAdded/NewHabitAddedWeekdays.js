@@ -13,6 +13,7 @@ export default function NewHabitAddedWeekdays({el}) {
             key={elem.day}
             letter={elem.letter}
             isSelected={isSelected.some((s)=>s === elem.day)}
+            data-test="habit-day"
             />)}
         </NewHabitAddedWeekdaysContainer>
     )

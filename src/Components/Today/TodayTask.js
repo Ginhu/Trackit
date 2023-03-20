@@ -7,6 +7,7 @@ export default function TodayTask({task ,header , setTodayTasksDone, todayTasksD
 
     const [statusTask, setStatusTask] = useState(task.done)
     const [highestSequenceStatus, setHighestSequenceStatus] = useState(false)
+    const [disabled, setDisabled] = useState(false)
 
     function taskHighest(data, data2) {
         if(data > 0 && data === data2) {
@@ -22,34 +23,40 @@ export default function TodayTask({task ,header , setTodayTasksDone, todayTasksD
     
 
     function checkTask() {
+        setDisabled(true)
+
         if(!statusTask) {
             axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${task.id}/check`, {}, header)
-            .then((res) =>{
+            .then(() =>{
                 setStatusTask(!statusTask)    
                 setTodayTasksDone(todayTasksDone+1)
+                setDisabled(false)
             })
             .catch(err => {
                 alert(err.response.data.message)
+                setDisabled(false)
             })
         } else {
             axios.post(`https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/${task.id}/uncheck`, {}, header)
-            .then((res)=>{
+            .then(()=>{
                 setStatusTask(!statusTask)
                 setTodayTasksDone(todayTasksDone-1)
+                setDisabled(false)
             })
             .catch(err => {
                 alert(err.response.data.message)
+                setDisabled(false)
             })
         }
     }
 
     return (
-        <TaskContainer onClick={checkTask} taskComplete={task.done} taskHighest={highestSequenceStatus}>
+        <TaskContainer taskComplete={task.done} taskHighest={highestSequenceStatus}>
             <TaskTitle>
-                <p>{task.name}</p>
-                <h3>Sequência atual:<span> {task.currentSequence} dias </span></h3> <h2>Seu recorde: <span>{task.highestSequence} dias</span></h2>
+                <p data-test="today-habit-name">{task.name}</p>
+                <h3 data-test="today-habit-sequence">Sequência atual:<span> {task.currentSequence} dias </span></h3> <h2 data-test="today-habit-record">Seu recorde: <span>{task.highestSequence} dias</span></h2>
             </TaskTitle>
-            <TaskCheckContainer statusTask={statusTask}>
+            <TaskCheckContainer statusTask={statusTask} onClick={checkTask} disabled={disabled} data-test="today-habit-check-btn">
                 <img src={Icon}/>
             </TaskCheckContainer>
         </TaskContainer>
