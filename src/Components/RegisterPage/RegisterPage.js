@@ -3,6 +3,7 @@ import Logo from "../../assets/logo-completa.svg"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
+import { ThreeDots } from "react-loader-spinner"
 
 export default function RegisterPage ({email, setEmail, password, setPassword}) {
 
