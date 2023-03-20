@@ -39,7 +39,16 @@ export default function RegisterPage ({email, setEmail, password, setPassword}) 
             <input placeholder="senha" onChange={(e)=>setPassword(e.target.value)} value={password} disabled={disabled} data-test="password-input"/>
             <input placeholder="nome" onChange={(e)=>setUserName(e.target.value)} value={userName} disabled={disabled} data-test="user-name-input"/>
             <input placeholder="foto" onChange={(e)=> setUserImage(e.target.value)} value={userImage} disabled={disabled} data-test="user-image-input"/>
-            <button onClick={clickRegister} disabled={disabled} data-test="signup-btn">Cadastrar</button>
+            <button onClick={clickRegister} disabled={disabled} data-test="signup-btn">{!disabled ? "Cadastrar" : <ThreeDots 
+                    height="80" 
+                    width="80" 
+                    radius="9"
+                    color="#4fa94d" 
+                    ariaLabel="three-dots-loading"
+                    wrapperStyle={{}}
+                    wrapperClassName=""
+                    visible={true}
+                    />}</button>
 
         </FormContainer>
 

@@ -51,7 +51,7 @@ export default function TodayTask({task ,header , setTodayTasksDone, todayTasksD
     }
 
     return (
-        <TaskContainer taskComplete={task.done} taskHighest={highestSequenceStatus}>
+        <TaskContainer taskComplete={task.done} taskHighest={highestSequenceStatus} data-test="today-habit-container">
             <TaskTitle>
                 <p data-test="today-habit-name">{task.name}</p>
                 <h3 data-test="today-habit-sequence">Sequência atual:<span> {task.currentSequence} dias </span></h3> <h2 data-test="today-habit-record">Seu recorde: <span>{task.highestSequence} dias</span></h2>

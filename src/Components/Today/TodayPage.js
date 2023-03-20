@@ -32,7 +32,7 @@ export default function TodayPage({image, setTodayTasksCounter, todayTasksCounte
         <TopFixed image={image} />
             <TodayContainer>
                 <TodayTitle todayTasksDone={todayTasksDone} todayTasksCounter={todayTasksCounter}/>
-                {todayTasks.map((el)=> <TodayTask key={el.id} header={header} task={el} setTodayTasksDone={setTodayTasksDone} todayTasksDone={todayTasksDone} data-test="today-habit-container"/>)}
+                {todayTasks.map((el)=> <TodayTask key={el.id} header={header} task={el} setTodayTasksDone={setTodayTasksDone} todayTasksDone={todayTasksDone}/>)}
             </TodayContainer>
         <MenuFixed todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}/>
         </>

@@ -11,7 +11,6 @@ export default function NewHabitWeekdayButtons({refArray, clickDay, weekdaysArra
                 clickDay={()=>clickDay(el)}
                 isSelected={weekdaysArray.some((s)=> s === el.day)}
                 disabled={disabled}
-                data-test="habit-day"
             />)}                        
         </NewHabitWeekdayButtonsContainer>
     )
