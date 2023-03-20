@@ -5,7 +5,7 @@ export default function NewHabitSaveCancelButton({showNew, setShowNew, clickSave
     return (
         <NewHabitSaveCancelButtonContainer>
             <button disabled={disabled} onClick={()=>setShowNew(!showNew)} data-test="habit-create-cancel-btn">Cancelar</button>
-            <span onClick={clickSave} data-test="habit-create-save-btn">
+            <span disabled={disabled} onClick={clickSave} data-test="habit-create-save-btn">
                 {!disabled ? "Salvar" : <ThreeDots 
                     height="80" 
                     width="80" 

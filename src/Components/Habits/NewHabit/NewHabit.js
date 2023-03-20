@@ -36,8 +36,8 @@ export default function NewHabit({showNew, setShowNew, weekdaysArray, setWeekday
             })
             .catch(err=>{
                 setDisabled(false)
-                alert(err.response.data.message)})
-            
+                alert(err.response.data.message)
+            })
             setNewHabitName("")
             setWeekdaysArray([])
         }
