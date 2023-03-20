@@ -20,7 +20,7 @@ import HabitsTitle from "./HabitsTitle"
         .then(res=>{
             setHabistArray(res.data)
         })
-        .catch(err=>alert(err.response.data, header))
+        .catch(err=>alert(err.response.data))
     }, [habitsArray])
 
     function clicado () {

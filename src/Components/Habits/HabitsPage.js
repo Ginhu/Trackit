@@ -3,7 +3,7 @@ import TopFixed from "../FixedComponents/Top"
 import {HabitsContainer} from "./HabistStyled"
 import HabitsContent from "./HabitsContent"
 
-export default function HabitsPage({image}) {
+export default function HabitsPage({image, todayTasksCounter, todayTasksDone}) {
     return (
         <>  
             <TopFixed image={image}/>
@@ -12,7 +12,7 @@ export default function HabitsPage({image}) {
                 <HabitsContent/>                
             </HabitsContainer>
             
-            <MenuFixed/>
+            <MenuFixed todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}/>
         </>
     )
 }

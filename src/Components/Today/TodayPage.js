@@ -3,23 +3,35 @@ import MenuFixed from "../FixedComponents/Menu"
 import { TodayContainer } from "./TodayStyled"
 import TodayTitle from "./TodayTitle"
 import TodayTask from "./TodayTask"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../../UserContext"
+import axios from "axios"
 
-export default function TodayPage({image}) {
+export default function TodayPage({image, setTodayTasksCounter, todayTasksCounter, setTodayTasksDone, todayTasksDone}) {
 
     const { header } = useContext(UserContext)
+    const [todayTasks, setTodayTasks] = useState([])
+    
+
+    useEffect(()=>{
+        axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits/today", header)
+        .then(res=>{setTodayTasks(res.data)
+            setTodayTasksCounter(res.data.length) 
+            })
+        .catch(err=>console.log(err.response.data.message))
+    }, [todayTasksDone])
+
+    
 
 
     return (
         <>
-        <TopFixed image={image}/>
+        <TopFixed image={image} />
             <TodayContainer>
-                <TodayTitle/>
-                <TodayTask/>
-                <TodayTask/>
+                <TodayTitle todayTasksDone={todayTasksDone} todayTasksCounter={todayTasksCounter}/>
+                {todayTasks.map((el)=> <TodayTask key={el.id} header={header} task={el} setTodayTasksDone={setTodayTasksDone} todayTasksDone={todayTasksDone} />)}
             </TodayContainer>
-        <MenuFixed/>
+        <MenuFixed todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}/>
         </>
     )
 }

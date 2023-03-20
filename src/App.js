@@ -9,9 +9,11 @@ import { UserContext } from "./UserContext"
 
 function App() {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [header, setHeader] = useState(null)
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [header, setHeader] = useState(null)
+  const [todayTasksCounter, setTodayTasksCounter] = useState(0)
+  const [todayTasksDone, setTodayTasksDone] = useState(0)
     
 
   return (
@@ -21,9 +23,13 @@ function App() {
       
           <Route path="/" element={<LoginPage email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
           <Route path="/cadastro" element={<RegisterPage email={email} setEmail={setEmail} password={password} setPassword={setPassword}/>} />
-          <Route path="/habitos" element={<HabitsPage image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
-          <Route path="/hoje" element={<TodayPage image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/> 
-          <Route path="/historico" element={<HistoricPage image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
+          <Route path="/habitos" element={<HabitsPage todayTasksCounter={todayTasksCounter} todayTasksDone={todayTasksDone}
+          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
+          <Route path="/hoje" element={<TodayPage todayTasksDone={todayTasksDone} setTodayTasksDone={setTodayTasksDone}  
+          todayTasksCounter={todayTasksCounter} setTodayTasksCounter={setTodayTasksCounter} 
+          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/> 
+          <Route path="/historico" element={<HistoricPage todayTasksDone={todayTasksDone} todayTasksCounter={todayTasksCounter}
+          image={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}/>}/>
         
     </Routes>
     </UserContext.Provider>

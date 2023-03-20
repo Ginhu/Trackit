@@ -37,7 +37,7 @@ export const TitleContainer = styled.div`
         font-weight: 400;
         font-size: 17.976px;
         line-height: 22px;
-        color: #BABABA;
+        color: ${props=>props.todayTasksDone === 0 ? "#BABABA" : "#8FC549"};
     }
 `
 
@@ -51,9 +51,7 @@ export const TaskContainer = styled.div`
     align-items: center;
     margin-bottom: 10px;
 
-    div {
-        padding-left: 15px;
-    }
+    
 
     p{
         font-family: 'Lexend Deca';
@@ -65,16 +63,53 @@ export const TaskContainer = styled.div`
         margin-bottom: 10px;
     }
 
-    span {
+    h3 {
         font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
         font-size: 12.976px;
         line-height: 16px;
         color: #666666;
+
+        span {
+            color:${props => props.taskComplete ? "#8FC549" : "#666666"};
+        }
+    }
+
+    h2 {
+        font-family: 'Lexend Deca';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12.976px;
+        line-height: 16px;
+        color: #666666;
+
+        span {
+            color:${props => props.taskHighest ? "#8FC549" : "#666666"};
+        }
     }
 
     img{ 
         width: 100px;
+    }
+`
+
+export const TaskTitle = styled.div`
+    padding-left: 15px;
+`
+
+export const TaskCheckContainer = styled.div`
+    width: 69px;
+    height: 69px;
+    background: ${props=>props.statusTask ? "#8FC549" : "#EBEBEB"};
+    border: 1px solid #E7E7E7;
+    border-radius: 5px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        width: 35px;
     }
 `
