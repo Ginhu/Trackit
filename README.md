@@ -3,12 +3,12 @@
 An easy way to track your daily tasks so they'd become a habit someday.
 
 <div style="display: inline_block" align="center" gap="30px"><br>
-  <img width="200px" height="auto" src="/assets/TrackIt_Login.png" />
-  <img width="200px" height="auto" src="/assets/TrackIt_SignUp.png" />
-  <img width="200px" height="auto" src="/assets/TrackIt_Main.png" />
-  <img width="200px" height="auto" src="/assets/TrackIt_NewHabit.png" />
-  <img width="200px" height="auto" src="/assets/TrackIt_Today.png" />
-  <img width="200px" height="auto" src="/assets/TrackIt_History.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_Login.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_SignUp.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_Main.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_NewHabit.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_Today.png" />
+  <img width="266px" height="auto" src="/assets/TrackIt_History.png" />
 </div><br>
 
 Try it out on https://projeto11-trackit-cyan.vercel.app
